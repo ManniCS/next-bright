@@ -1,20 +1,8 @@
 import React from 'react';
 import { Code } from 'bright';
+import Snippet from '../components/Snippet/Snippet';
 
 function Home() {
-  const [
-    isFirstSnippetShown,
-    setIsFirstSnippetShown,
-  ] = React.useState(false);
-  const [
-    isSecondSnippetShown,
-    setIsSecondSnippetShown,
-  ] = React.useState(false);
-  const [
-    isThirdSnippetShown,
-    setIsThirdSnippetShown,
-  ] = React.useState(false);
-
   return (
     <main>
       <h1>Introduction to Python</h1>
@@ -27,8 +15,7 @@ function Home() {
         automatically determines the data type
         based on the value you assign.
       </p>
-
-      {isFirstSnippetShown ? (
+      <Snippet>
         <Code
           className="code-snippet"
           theme="dracula"
@@ -36,17 +23,7 @@ function Home() {
         >
           {FIRST_SNIPPET}
         </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsFirstSnippetShown(true)
-            }
-          >
-            Reveal Content
-          </button>
-        </div>
-      )}
+      </Snippet>
 
       <h2>
         Control Flow: Conditionals and Loops
@@ -56,8 +33,7 @@ function Home() {
         structures like if statements, for and
         while loops.
       </p>
-
-      {isSecondSnippetShown ? (
+      <Snippet>
         <Code
           className="code-snippet"
           theme="dracula"
@@ -65,18 +41,8 @@ function Home() {
         >
           {SECOND_SNIPPET}
         </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsSecondSnippetShown(true)
-            }
-          >
-            Reveal Content
-          </button>
-        </div>
-      )}
-
+      </Snippet>
+ 
       <h2>Functions and Basic Data Structures</h2>
 
       <p>
@@ -85,26 +51,15 @@ function Home() {
         also has built-in data structures like
         lists and dictionaries.
       </p>
-
-      {isThirdSnippetShown ? (
+      <Snippet>
         <Code
-          className="code-snippet"
-          theme="dracula"
-          lang="py"
-        >
-          {THIRD_SNIPPET}
-        </Code>
-      ) : (
-        <div className="reveal">
-          <button
-            onClick={() =>
-              setIsThirdSnippetShown(true)
-            }
+            className="code-snippet"
+            theme="dracula"
+            lang="py"
           >
-            Reveal Content
-          </button>
-        </div>
-      )}
+            {SECOND_SNIPPET}
+        </Code>
+      </Snippet>
     </main>
   );
 }
